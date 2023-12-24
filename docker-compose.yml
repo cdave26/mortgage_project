@@ -1,0 +1,48 @@
+version: "3.2"
+
+services:
+  api:
+    build: ./api-service
+    restart: unless-stopped
+    volumes:
+      - ./api-service:/app/
+    ports:
+      - "8081:80"
+      - "6001:6001"
+    environment:
+      - WEB_DOCUMENT_ROOT=/app/public
+    networks:
+      - local
+    depends_on:
+      - db
+  ui:
+    image: node:18.16.1
+    restart: unless-stopped
+    command: bash -c "yarn install && yarn dev"
+    volumes:
+      - ./client-service-nextjs:/app
+    working_dir: /app
+    networks:
+      - local
+    ports:
+      - "3000:3000"
+  db:
+    image: mysql:8.0.32
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: uplist
+      MYSQL_USER: uplist
+      MYSQL_PASSWORD: helloworld
+      MYSQL_ROOT_PASSWORD: helloworld123
+    volumes:
+      - ./db:/var/lib/mysql/
+    networks:
+      - local
+
+networks:
+  local:
+    driver: bridge

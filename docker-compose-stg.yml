@@ -1,0 +1,109 @@
+## Docker Compose File for Uplist project - Staging Environment
+#
+version: "3.3"
+services:
+  traefik:
+    image: "traefik:v2.9"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      # notice that radio isn't define.  that's because it will use 'web'
+      - "--entrypoints.api.address=:8081"
+      - "--entrypoints.ui.address=:3000"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myresolver.acme.email=jude@lanexus.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+      - "8081:8081"
+      - "3000:3000"
+      - "6001:6001"
+    networks:
+      - traefik
+    volumes:
+      - "letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    restart: "always"
+
+  api:
+    build: ./api-service
+    restart: unless-stopped
+    volumes:
+      - ./api-service:/app/
+    ports:
+      - target: 8081
+    environment:
+      - WEB_DOCUMENT_ROOT=/app/public
+    networks:
+      - traefik
+    depends_on:
+      - db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.api_uplist.tls.certresolver=myresolver"
+      # redirect
+      - "traefik.http.middlewares.api-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.api-https-redirect.redirectscheme.port=8081"
+      - "traefik.http.routers.api.middlewares=api-https-redirect"
+      # https routing
+      - "traefik.http.routers.api_uplist.rule=Host(`stg.uplist.lanexus.com`)"
+      - "traefik.http.routers.api_uplist.tls=true"
+      - "traefik.http.routers.api_uplist.entrypoints=api"
+
+  ui:
+    image: node:18.16.1
+    restart: unless-stopped
+    command: bash -c "yarn install && yarn build && yarn start"
+    volumes:
+      - ./client-service-nextjs:/app
+    working_dir: /app
+    networks:
+      - traefik
+    ports:
+      - target: 3000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.ui_uplist.tls.certresolver=myresolver"
+      # redirect
+      - "traefik.http.middlewares.ui-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.ui-https-redirect.redirectscheme.port=3000"
+      - "traefik.http.routers.ui.middlewares=ui-https-redirect"
+      # https routing
+      - "traefik.http.routers.ui_uplist.rule=Host(`stg.uplist.lanexus.com`)"
+      - "traefik.http.routers.ui_uplist.tls=true"
+      - "traefik.http.routers.ui_uplist.entrypoints=ui"
+
+  db:
+    image: mysql:8.0.32
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: uplist
+      MYSQL_USER: uplist
+      MYSQL_PASSWORD: helloworld
+      MYSQL_ROOT_PASSWORD: helloworld123
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - traefik
+
+volumes:
+  letsencrypt:
+
+networks:
+  traefik:
+    external: true
