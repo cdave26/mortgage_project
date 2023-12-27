@@ -1,0 +1,15 @@
+.git
+Dockerfile
+.dockerignore
+
+# Ignore PHP specific files
+composer.lock
+vendor
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+
+# Ignore user-specific files
+.DS_Store
+Thumbs.db

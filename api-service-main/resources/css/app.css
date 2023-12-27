@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "MinionPro";
+  src: url("../fonts/MinionPro-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fontsRobotoSlab-VariableFont_wght.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+p {
+	color: #ffffff;
+} */
+
+/* 
+* Company Theme Styling
+*/
+
+/* 
+* Understated Styling
+*/
+
+/* 
+*
+*casual styling
+*/

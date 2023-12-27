@@ -1,0 +1,82 @@
+%!Adobe-FontList 1.23
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/peteranderson/Desktop/Work/Freelance/Uplist/Release/Flyers/Proof3/Uplist_Flyer_Elegant_Mech4 Folder/Document fonts/AdobeFnt23.lst
+FileLength:1849
+FileModTime:700677454
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Regular
+FamilyName:Minion Pro
+StyleName:Regular
+MenuName:Minion Pro
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Minion Pro
+WritingScript:Roman
+OutlineFileName:/Users/peteranderson/Desktop/Work/Freelance/Uplist/Release/Flyers/Proof3/Uplist_Flyer_Elegant_Mech4 Folder/Document fonts/MinionPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:218640
+FileModTime:680572669
+DesignSize:110
+NameArray:0,Mac,4,Minion Pro
+NameArray:0,Win,1,Minion Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:PlayfairDisplay-Bold
+FamilyName:Playfair Display
+StyleName:Bold
+MenuName:Playfair Display
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Playfair Display Bold
+WritingScript:Roman
+OutlineFileName:/Users/peteranderson/Desktop/Work/Freelance/Uplist/Release/Flyers/Proof3/Uplist_Flyer_Elegant_Mech4 Folder/Document fonts/PlayfairDisplay-Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:193136
+FileModTime:343123200
+NameArray:0,Win,1,Playfair Display
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:PlayfairDisplay-Regular
+FamilyName:Playfair Display
+StyleName:Regular
+MenuName:Playfair Display
+FamilyPrefix:PlayfairDisplayRoman
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Playfair Display Regular
+WritingScript:Roman
+OutlineFileName:/Users/peteranderson/Desktop/Work/Freelance/Uplist/Release/Flyers/Proof3/Uplist_Flyer_Elegant_Mech4 Folder/Document fonts/PlayfairDisplay-VariableFont_wght.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:TrueTypeVariableFont
+FileLength:298268
+FileModTime:343123200
+NameArray:0,Win,1,Playfair Display
+%EndFont
+
