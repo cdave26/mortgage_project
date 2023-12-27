@@ -1,0 +1,99 @@
+/*!
+* Uplist Theme Style v1.0
+* 
+* Copyright 2020, Uplist 
+*
+* 
+* 1. MISCELLANEOUS
+* 3. ANTD OVERRIDES
+* 
+* WARNING: Please refer to tailwind.config.js (https://tailwindcss.com/docs/configuration)
+*          in overriding styles related to tailwind.
+* 
+* USAGE: 
+*  --- 
+* As much as possible use the antd base class and tailwind utility classes BEFORE 
+*  creating custom classes. Please refrain from creating classes or ids without a purpose
+*  ---
+*/
+
+/*---------------------------/*
+*       LAYOUT               *
+/*---------------------------*/
+@import "./layouts.scss";
+
+/*---------------------------/*
+*       ANTD OVERRIDES       *
+/*---------------------------*/
+@import "./overrides/modal.scss";
+
+@import "./overrides/pricing.scss";
+
+@import "./overrides/verification.scss";
+
+@import "./overrides/menu.scss";
+
+@import "./overrides/dropdown.scss";
+
+@import "./overrides/selectoption.scss";
+
+@import "./overrides/userList.scss";
+
+@import "./overrides/input.scss";
+
+@import "./overrides/company.scss";
+
+@import "./overrides/table.scss";
+
+@import "./overrides/radio.scss";
+
+@import "./overrides/checkbox.scss";
+
+@import "./overrides/listing.scss";
+
+@import "./overrides/calculator.scss";
+
+@import "./overrides/homerates.scss";
+
+@import "./overrides/404.scss";
+
+@import "./overrides/flyer-management.scss";
+
+@import "./overrides/pagination.scss";
+
+@import "./overrides/button.scss";
+
+@import "./overrides/maintenance.scss";
+
+@import "./overrides/fontsize.scss";
+
+@import "./overrides/buydown.scss";
+
+/*---------------------------/*
+*       MISCELLANEOUS        *
+/*---------------------------*/
+
+html {
+  --antd-wave-shadow-color: unset;
+}
+
+body {
+  height: auto;
+  background-color: #f5f5f5;
+  color: #4b5a6a;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  color: #0662c7;
+}
+
+input {
+  font-size: 1rem;
+}

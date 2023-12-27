@@ -1,0 +1,45 @@
+.container {
+	text-align: center;
+	margin-top: 200px;
+}
+
+.animated-text {
+	opacity: 0;
+	animation: fade-in 0.2s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.button {
+	display: inline-block;
+	background-color: #ffc160;
+	color: #00162e;
+	padding: 12px 24px;
+	text-decoration: none;
+	font-size: 18px;
+	border-radius: 4px;
+	opacity: 0;
+	animation: button-fade-in 0.3s ease-in-out forwards 0.2s;
+}
+
+@keyframes button-fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.button:hover {
+	background-color: #ffc160;
+}

@@ -1,0 +1,66 @@
+.mortgage-button {
+  .icon-default {
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .icon-hover {
+    transition: opacity 0.3s, transform 0.3s;
+    transform: rotate(-180deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.selected-flyer img {
+  border: 2px solid #0662c7;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.listing-collapse-panel {
+  .ant-collapse-header {
+    padding: 1rem 2rem !important;
+    color: #0662c7 !important;
+    font-size: 1.25rem;
+    line-height: 1.5625rem;
+    .ant-collapse-extra {
+      color: #111418;
+    }
+  }
+  .ant-collapse-content {
+    .ant-collapse-content-box {
+      padding: 2rem !important;
+    }
+  }
+}
+
+#_listing-container_ {
+  background: transparent !important;
+  .ant-table-tbody {
+    background: transparent !important;
+    .ant-table-row {
+      background: transparent !important;
+      .ant-table-cell:last-child {
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
+
+        .ant-dropdown-trigger {
+          width: auto !important;
+          height: 54px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          background: transparent !important;
+        }
+      }
+    }
+  }
+}
+
+.has-listing-status .custom-select__control{
+  border-color: #0662c7;
+}
+
+.no-listing-status .custom-select__control{
+  border-color: #fa657e;
+}

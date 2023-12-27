@@ -1,0 +1,23 @@
+.ant-pagination {
+  background-color: transparent !important;
+  .ant-pagination-total-text {
+    color: #7e8c9c !important;
+    font-size: 12px !important;
+    font-family: "sharp-sans" !important;
+    flex-grow: 1;
+  }
+  .ant-pagination-item {
+    &.ant-pagination-item-active {
+      font-weight: 600;
+      background-color: #0762c8 !important;
+      border-color: #0762c8 !important;
+
+      a {
+        color: #ffffff !important;
+        font-family: "sharp-sans-medium" !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+      }
+    }
+  }
+}

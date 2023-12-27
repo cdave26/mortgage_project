@@ -1,0 +1,40 @@
+.buydown-collapse .ant-collapse-header {
+    order: 2;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.buydown-collapse .ant-collapse-content {
+    background: transparent !important;
+    border-style: none !important;
+    border-radius: 0px !important;
+    order: 1;
+}
+
+.buydown-collapse .ant-collapse-content .ant-collapse-content-box {
+    padding: 4px 0 0;
+}
+
+.buydown-collapse .ant-collapse-item {
+    border-style: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.buydown-collapse .ant-collapse-header-text {
+    font-family: sharp-sans-medium, sans-serif;
+    --tw-text-opacity: 1;
+    color: rgb(126 140 156 / var(--tw-text-opacity));
+}
+
+.buydown-collapse .ant-collapse-item-active :where(.ant-collapse-header-text) {
+    font-family: sharp-sans-bold, sans-serif;
+    --tw-text-opacity: 1;
+    color: rgb(0 22 46 / var(--tw-text-opacity));
+    margin-top: 2px;
+}
+
+.buydown-dropdown :where(.mb-6) {
+    margin-bottom: 0 !important;
+}

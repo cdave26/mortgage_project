@@ -1,0 +1,44 @@
+{
+    "env": {
+        "browser": true,
+        "es2015": true,
+        "commonjs": true,
+        "node": true
+    },
+    "extends": [
+        "next/core-web-vitals",
+        "eslint:recommended",
+        "next",
+        "plugin:react/recommended"
+    ],
+    "presets": ["next/babel"],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "project": "./jsconfig.json"
+    },
+    "plugins": ["react"],
+    "rules": {
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/display-name": "off",
+        "no-unused-vars": "off",
+        "no-undef": "off",
+        "no-console": "off",
+        "no-constant-condition": "off",
+        "no-empty": "off",
+        "no-prototype-builtins": "off",
+        "no-useless-escape": "off",
+        "no-case-declarations": "off",
+        "no-irregular-whitespace": "off",
+        "no-async-promise-executor": "off",
+        "no-unsafe-finally": "off",
+        "no-unsafe-negation": "off",
+        "no-unreachable": "off",
+        "no-unexpected-multiline": "off",
+        "react-hooks/exhaustive-deps": "off"
+    }
+}

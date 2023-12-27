@@ -1,0 +1,175 @@
+stages:
+    - acr-cleanup
+    - build
+
+.acr-cleanup:
+    image:
+        name: bitnami/azure-cli:2.52.0-debian-11-r0
+        entrypoint: [""]
+    stage: acr-cleanup
+    script:
+        - ./.gitlab/acr-cleanup.sh
+acr-cleanup-dev:
+    extends: .acr-cleanup
+    environment:
+        name: development
+    variables:
+        ACR_IMAGE: $PROJECT_ENV/$REPO_NAME
+    before_script:
+        - az login --service-principal --username $AZ_SP_USERNAME --password $AZ_SP_PASSWORD --tenant $AZ_SP_TENANT
+    only:
+        - develop
+acr-cleanup-stg:
+    extends: .acr-cleanup
+    environment:
+        name: staging
+    variables:
+        ACR_IMAGE: $PROJECT_ENV/$REPO_NAME
+    before_script:
+        - az login --service-principal --username $AZ_SP_USERNAME --password $AZ_SP_PASSWORD --tenant $AZ_SP_TENANT
+    only:
+        - main
+acr-cleanup-prd:
+    extends: .acr-cleanup
+    environment:
+        name: production
+    variables:
+        ACR_IMAGE: $PROJECT_ENV/$REPO_NAME
+    before_script:
+        - az login --service-principal --username $AZ_SP_USERNAME --password $AZ_SP_PASSWORD --tenant $AZ_SP_TENANT
+    only:
+        - tags
+
+.build:
+    image: docker
+    services:
+        - docker:24.0.5-dind-alpine3.18
+    stage: build
+    before_script:
+        - echo $ACR_PASSWORD | docker login $ACR_REGISTRY.azurecr.io -u $ACR_USERNAME --password-stdin
+        - echo "REACT_APP_API_SERVICE_URL=$REACT_APP_API_SERVICE_URL" >> .env
+        - echo "REACT_APP_URL=$REACT_APP_URL" >> .env
+        - echo "RECAPTCHA_SITE_KEY=$RECAPTCHA_SITE_KEY" >> .env
+        - echo "UPLIST_MARKETING_URL=$UPLIST_MARKETING_URL" >> .env
+        - echo "UPLIST_PRIVACY_POLICY_URL=$UPLIST_PRIVACY_POLICY_URL" >> .env
+        - echo "UPLIST_TOS_URL=$UPLIST_TOS_URL" >> .env
+        - echo "WS=$WS" >> .env
+        - echo "SECURITY_APP=$SECURITY_APP" >> .env
+        - echo "STRIPE_PRICING_1=$STRIPE_PRICING_1" >> .env
+        - echo "STRIPE_PRICING_2=$STRIPE_PRICING_2" >> .env
+        - echo "STRIPE_PRICING_3=$STRIPE_PRICING_3" >> .env
+        - echo "STRIPE_PRICING_SPECIAL=$STRIPE_PRICING_SPECIAL" >> .env
+        - echo "APP_PORT=$APP_PORT" >> .env
+        - echo "APP_HOSTNAME=$APP_HOSTNAME" >> .env
+        - echo "GOOGLE_ANALYTICS=$GOOGLE_ANALYTICS" >> .env
+        - echo "MAINTENANCE_MODE=$MAINTENANCE_MODE" >> .env
+        - echo "NODE_ENV=$NODE_ENV" >> .env
+        - echo "PUSHER_CLUSTER=$PUSHER_CLUSTER" >> .env
+        - echo "PUSHER_KEY=$PUSHER_KEY" >> .env
+        - echo "PUSHER_PORT=$PUSHER_PORT" >> .env
+        - echo "PUSHER_WS=$PUSHER_WS" >> .env
+        - echo "PUSHER_WSHOST=$PUSHER_WSHOST" >> .env
+        - echo "STORAGE_URL=$STORAGE_URL" >> .env
+        - echo "API_STORAGE_ENV=$API_STORAGE_ENV" >> .env
+    script:
+        - docker build --no-cache -t $REGISTRY:latest .
+        - docker push $REGISTRY:latest
+
+build-dev:
+    extends: .build
+    environment:
+        name: development
+    variables:
+        REGISTRY: $ACR_REGISTRY.azurecr.io/$PROJECT_ENV/$REPO_NAME
+        REACT_APP_API_SERVICE_URL: $REACT_APP_API_SERVICE_URL
+        REACT_APP_URL: $REACT_APP_URL
+        RECAPTCHA_SITE_KEY: $RECAPTCHA_SITE_KEY
+        UPLIST_MARKETING_URL: $UPLIST_MARKETING_URL
+        UPLIST_PRIVACY_POLICY_URL: $UPLIST_PRIVACY_POLICY_URL
+        UPLIST_TOS_URL: $UPLIST_TOS_URL
+        WS: $WS
+        SECURITY_APP: $SECURITY_APP
+        STRIPE_PRICING_1: $STRIPE_PRICING_1
+        STRIPE_PRICING_2: $STRIPE_PRICING_2
+        STRIPE_PRICING_3: $STRIPE_PRICING_3
+        STRIPE_PRICING_SPECIAL: $STRIPE_PRICING_SPECIAL
+        APP_PORT: $APP_PORT
+        APP_HOSTNAME: $APP_HOSTNAME
+        MAINTENANCE_MODE: $MAINTENANCE_MODE
+        NODE_ENV: $NODE_ENV
+        PUSHER_CLUSTER: $PUSHER_CLUSTER
+        PUSHER_KEY: $PUSHER_KEY
+        PUSHER_PORT: $PUSHER_PORT
+        PUSHER_WS: $PUSHER_WS
+        PUSHER_WSHOST: $PUSHER_WSHOST
+        STORAGE_URL: $STORAGE_URL
+        API_STORAGE_ENV: $API_STORAGE_ENV
+    only:
+        refs:
+            - develop
+
+build-stg:
+    extends: .build
+    environment:
+        name: staging
+    variables:
+        REGISTRY: $ACR_REGISTRY.azurecr.io/$PROJECT_ENV/$REPO_NAME
+        REACT_APP_API_SERVICE_URL: $REACT_APP_API_SERVICE_URL
+        REACT_APP_URL: $REACT_APP_URL
+        RECAPTCHA_SITE_KEY: $RECAPTCHA_SITE_KEY
+        UPLIST_MARKETING_URL: $UPLIST_MARKETING_URL
+        UPLIST_PRIVACY_POLICY_URL: $UPLIST_PRIVACY_POLICY_URL
+        UPLIST_TOS_URL: $UPLIST_TOS_URL
+        WS: $WS
+        SECURITY_APP: $SECURITY_APP
+        STRIPE_PRICING_1: $STRIPE_PRICING_1
+        STRIPE_PRICING_2: $STRIPE_PRICING_2
+        STRIPE_PRICING_3: $STRIPE_PRICING_3
+        STRIPE_PRICING_SPECIAL: $STRIPE_PRICING_SPECIAL
+        APP_PORT: $APP_PORT
+        APP_HOSTNAME: $APP_HOSTNAME
+        MAINTENANCE_MODE: $MAINTENANCE_MODE
+        NODE_ENV: $NODE_ENV
+        PUSHER_CLUSTER: $PUSHER_CLUSTER
+        PUSHER_KEY: $PUSHER_KEY
+        PUSHER_PORT: $PUSHER_PORT
+        PUSHER_WS: $PUSHER_WS
+        PUSHER_WSHOST: $PUSHER_WSHOST
+        STORAGE_URL: $STORAGE_URL
+        API_STORAGE_ENV: $API_STORAGE_ENV
+    only:
+        refs:
+            - main
+
+build-prd:
+    extends: .build
+    environment:
+        name: production
+    variables:
+        REGISTRY: $ACR_REGISTRY.azurecr.io/$PROJECT_ENV/$REPO_NAME
+        REACT_APP_API_SERVICE_URL: $REACT_APP_API_SERVICE_URL
+        REACT_APP_URL: $REACT_APP_URL
+        RECAPTCHA_SITE_KEY: $RECAPTCHA_SITE_KEY
+        UPLIST_MARKETING_URL: $UPLIST_MARKETING_URL
+        UPLIST_PRIVACY_POLICY_URL: $UPLIST_PRIVACY_POLICY_URL
+        UPLIST_TOS_URL: $UPLIST_TOS_URL
+        WS: $WS
+        SECURITY_APP: $SECURITY_APP
+        STRIPE_PRICING_1: $STRIPE_PRICING_1
+        STRIPE_PRICING_2: $STRIPE_PRICING_2
+        STRIPE_PRICING_3: $STRIPE_PRICING_3
+        STRIPE_PRICING_SPECIAL: $STRIPE_PRICING_SPECIAL
+        APP_PORT: $APP_PORT
+        APP_HOSTNAME: $APP_HOSTNAME
+        GOOGLE_ANALYTICS: $GOOGLE_ANALYTICS
+        MAINTENANCE_MODE: $MAINTENANCE_MODE
+        NODE_ENV: $NODE_ENV
+        PUSHER_CLUSTER: $PUSHER_CLUSTER
+        PUSHER_KEY: $PUSHER_KEY
+        PUSHER_PORT: $PUSHER_PORT
+        PUSHER_WS: $PUSHER_WS
+        PUSHER_WSHOST: $PUSHER_WSHOST
+        STORAGE_URL: $STORAGE_URL
+        API_STORAGE_ENV: $API_STORAGE_ENV
+    only:
+        - tags

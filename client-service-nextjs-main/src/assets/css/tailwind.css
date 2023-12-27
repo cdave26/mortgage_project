@@ -1,0 +1,65 @@
+/*!
+* Uplist Base Style v1.0
+* 
+* uses the following CSS Framework
+* 1. https://tailwindcss.com/ - we're only utilizing the the utility classes 
+* of tailwindcss to compensate missing utlity classes from antd.
+* 
+* Copyright 2023, Uplist 
+* @NOTICE: please don't put any additional css here. Use the theme.scss for any 
+* overrides and custom styles.
+*/
+
+@tailwind utilities;
+
+@font-face {
+  font-family: "sharp-sans";
+  src: url("../fonts/sharp_sans.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "sharp-sans-medium";
+  src: url("../fonts/sharp_sans_medium.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "sharp-sans-bold";
+  src: url("../fonts/sharp_sans_bold.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "sharp-sans-semibold";
+  src: url("../fonts/sharp_sans_semibold.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url("../fonts/montserrat.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "montserrat-medium";
+  src: url("../fonts/montserrat_medium.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "montserrat-semibold";
+  src: url("../fonts/montserrat_semibold.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "montserrat-bold";
+  src: url("../fonts/montserrat_bold.otf");
+  font-display: swap;
+}
+
+html, body, #__next {
+  height: 100% !important;
+}

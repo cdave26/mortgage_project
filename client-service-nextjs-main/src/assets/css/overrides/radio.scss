@@ -1,0 +1,121 @@
+.ant-radio-wrapper {
+  &:hover {
+    .ant-radio-inner {
+      border-color: #0762c8;
+    }
+  }
+  .ant-radio-checked {
+    .ant-radio-inner {
+      border-color: #0762c8;
+      background-color: #ffffff;
+      &::after {
+        background-color: #0762c8;
+      }
+    }
+  }
+}
+
+.buyer {
+  .ant-radio-wrapper {
+    .ant-radio-checked {
+      .ant-radio-inner {
+        background-color: #ffffff;
+        border-color: #0662c7;
+        &::after {
+          background-color: #0662c7;
+        }
+      }
+    }
+  }
+  .ant-radio-wrapper-disabled {
+    .ant-radio-inner {
+      background-color: #ffffff;
+      border-color: #00000040;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ant-radio-group {
+    &.ant-radio-group-solid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      .ant-radio-button-wrapper {
+        width: 100% !important;
+        border-radius: 6px;
+        border-left-width: 1px;
+        display: flex;
+        justify-content: center;
+        &:not(:first-child) {
+          &::before {
+            background-color: transparent !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ant-radio-group {
+  &.ant-radio-group-solid {
+    width: 100%;
+    display: flex;
+    .ant-radio-button-wrapper {
+      &:not(:first-child) {
+        &::before {
+          background-color: #0762c8;
+        }
+      }
+      font-size: 14px;
+      line-height: 18px;
+      padding: 0 40px;
+      height: 40px;
+      color: #00162e;
+      border-color: #0762c8;
+      display: flex;
+      align-items: center;
+      font-family: "sharp-sans-semibold";
+      width: fit-content;
+      &.ant-radio-button-wrapper-checked {
+        color: #ffffff;
+        background-color: #0762c8;
+        border-color: #0762c8;
+        &::before {
+          background-color: #0762c8;
+        }
+        &:hover {
+          color: #ffffff;
+          background-color: #0762c8;
+          border-color: #0762c8;
+        }
+      }
+      &:hover {
+        color: #ffffff;
+        &::before {
+          background-color: #0762c8;
+        }
+        background-color: #0762c8;
+        border-color: #0762c8;
+      }
+    }
+  }
+}
+
+.buyer.ant-radio-wrapper > span:nth-child(2) {
+  width: 100% !important;
+}
+
+@media (max-width: 575px) {
+  /* Small screens (576px and below) */
+  .buyer.ant-radio-wrapper > span:nth-child(2) {
+    padding-right: 0px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Small screens (576px and above) */
+  .buyer.estimated-tax.ant-radio-wrapper > span:nth-child(2) {
+    padding-right: 0px !important;
+  }
+}

@@ -1,0 +1,10 @@
+.button-wrap{
+    word-break: break-word !important;
+    overflow-wrap: break-word;
+}
+
+a.ant-btn-disabled[label="Call"],
+a.ant-btn-disabled[label="Text"],
+button[disabled][label="Email"] {
+    opacity: 0.25;
+}

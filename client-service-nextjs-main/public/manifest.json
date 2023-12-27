@@ -1,0 +1,40 @@
+{
+  "name": "Uplist",
+  "short_name": "Uplist",
+  "description": "Uplist",
+  "background_color": "#0662C7",
+  "theme_color": "#0662C7",
+  "orientation": "portrait-primary",
+  "Scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/img/uplist-favicon-x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/uplist-favicon-x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/uplist-favicon-x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/uplist-favicon-x270.png",
+      "sizes": "270x270",
+      "type": "image/png"
+    }
+  ],
+  "gcm_sender_id": "",
+  "splash_pages": null,
+  "prefer_related_applications": false,
+  "gcm_user_visible_only": true,
+  "version": "1.0.0",
+  "version_name": "1.0.0",
+  "manifest_version": 1
+}

@@ -1,0 +1,3 @@
+export const PRICING_ENGINE = {
+    GET_PRICING_ENGINE: 'GET_PRICING_ENGINE',
+};

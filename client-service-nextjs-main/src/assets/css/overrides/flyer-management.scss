@@ -1,0 +1,36 @@
+.flyer-management-tabs {
+  .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+    border-bottom: 4px solid #ffc160 !important;
+  }
+
+  .ant-tabs-tab.ant-tabs-tab-active .text-base {
+    color: #00162e !important;
+  }
+  .ant-tabs-tab-btn .text-base {
+    color: #7e8c9c !important;
+  }
+}
+
+#_flyer-management-container_ {
+  background: transparent !important;
+  .ant-table-tbody {
+    background: transparent !important;
+    .ant-table-row {
+      background: transparent !important;
+      .ant-table-cell:last-child {
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
+
+        .ant-dropdown-trigger {
+          width: auto !important;
+          height: 54px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          background: transparent !important;
+        }
+      }
+    }
+  }
+}

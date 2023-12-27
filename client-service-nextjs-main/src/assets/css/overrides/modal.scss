@@ -1,0 +1,35 @@
+.ant-modal-root {
+  .ant-modal-wrap {
+    right: 0;
+    left: 0;
+    .ant-modal {
+      &.prompt {
+        .ant-modal-content {
+          padding: 2.5rem;
+          border-radius: 1.5rem;
+          box-shadow: 0px 4px 16px rgba(157, 170, 184, 0.3),
+            0px 4px 12px rgba(157, 170, 184, 0.3),
+            0px 2px 4px rgba(157, 170, 184, 0.3);
+        }
+      }
+      &.confirmation {
+        .ant-modal-content {
+          padding: 2rem 2rem 1.5rem 2rem;
+          box-shadow: 0px 3px 6px -4px rgba(0, 0, 0, 0.12),
+            0px 6px 16px rgba(0, 0, 0, 0.08),
+            0px 9px 28px 8px rgba(0, 0, 0, 0.05);
+          border-radius: 1rem;
+        }
+      }
+      &.modal-form {
+        .ant-modal-content {
+          padding: 2.5rem;
+          border-radius: 1rem;
+          box-shadow: 0px 4px 16px rgba(157, 170, 184, 0.2),
+            0px 4px 12px rgba(157, 170, 184, 0.2),
+            0px 2px 4px rgba(157, 170, 184, 0.2);
+        }
+      }
+    }
+  }
+}

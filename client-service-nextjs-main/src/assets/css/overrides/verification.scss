@@ -1,0 +1,9 @@
+.otp-input input {
+  width: 2.75rem !important ;
+}
+
+@media screen and (max-width: 768px) {
+  .otp-input input {
+    width: 1.75rem !important;
+  }
+}

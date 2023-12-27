@@ -1,0 +1,36 @@
+.ant-dropdown {
+  .ant-dropdown-menu {
+    padding: 6px 12px;
+    .ant-dropdown-menu-item {
+      &:hover {
+        background-color: #ffc160 !important;
+      }
+      .ant-dropdown-menu-title-content {
+        font-family: "sharp-sans-semibold";
+        color: #00162e;
+        font-size: 0.75rem; /* 12px */
+        line-height: 1rem; /* 16px */
+      }
+    }
+  }
+  &.public-calculator {
+    .ant-dropdown-menu {
+      .ant-dropdown-menu-item {
+        .ant-dropdown-menu-title-content {
+          font-family: "sharp-sans-medium";
+          color: #7e8c9c;
+          font-size: 1rem; /* 16px */
+          line-height: 1.3125rem; /* 21px */
+        }
+      }
+    }
+  }
+  &.buyer-dropdown {
+    .ant-dropdown-menu {
+        .ant-dropdown-menu-item {
+          &:hover {
+            background-color: #00CFE1 !important;
+          }}
+        }
+  }
+}

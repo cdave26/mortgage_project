@@ -1,0 +1,60 @@
+@media screen and (max-width: 992px) {
+  .address-text {
+    white-space: nowrap;
+  }
+
+  .adjust-long-font{
+     font-size: calc(0.5rem + 1vw + 3px) !important;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .adjust-medium-font{
+    font-size: calc(0.7rem + 1vw + 5px) !important;
+  }
+
+  .adjust-long-font{
+     font-size: calc(0.3rem + 1vw + 5px) !important;
+  }
+  
+}
+
+@media screen and (max-width: 520px) {
+  .adjust-small-font{
+    white-space: nowrap;
+    font-size: calc(1rem + 1vw + 5px) !important;
+  }
+}
+
+@media screen and (max-width: 465px) {
+    .adjust-long-font{
+        font-size: calc(0.3rem + 1vw + 3px) !important;
+    }
+
+    .adjust-medium-font{
+        font-size: calc(0.7rem + 1vw + 3px) !important;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .adjust-small-font{
+        white-space: nowrap;
+        font-size: calc(0.6rem + 1vw + 5px) !important;
+    }
+
+    .adjust-medium-font{
+        font-size: calc(0.6rem + 1vw + 3px) !important;
+    }
+
+    .adjust-long-font{
+        font-size: calc(0.1rem + 1vw + 4px) !important;
+    }
+}
+
+@media screen and (max-width: 260px) {
+
+  .adjust-medium-font{
+      font-size: calc(0.2rem + 1vw + 3px) !important;
+  }
+  
+}

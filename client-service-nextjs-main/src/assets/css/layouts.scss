@@ -1,0 +1,94 @@
+@media screen and (max-width: 992px) {
+  .layout-wrapper {
+    display: grid !important;
+    height: 100vh !important;
+    grid-template-columns: 0px 1fr !important;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "not-verified not-verified"
+      "layout-container-sider layout-container-body"
+      "layout-container-sider layout-footer";
+    .ant-layout-sider {
+      display: none;
+    }
+  }
+}
+
+.layout-wrapper {
+  display: grid !important;
+  height: 100vh !important;
+  grid-template-columns: 317px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "not-verified not-verified"
+    "layout-container-sider  layout-container-body"
+    "layout-container-sider layout-footer";
+
+  &.layout-wrapper-not-auth {
+    grid-template-columns: 0px 1fr;
+    grid-template-areas:
+      "not-verified not-verified"
+      "layout-container-sider layout-container-body"
+      "layout-container-sider layout-footer";
+  }
+
+  &.is-collapse {
+    grid-template-columns: 80px 1fr;
+    transition: all 0.3s ease;
+  }
+
+  overflow: hidden;
+  background: #fff !important;
+  min-height: 100vh !important;
+  margin: 0 auto;
+  .not-verified {
+    grid-area: not-verified;
+    background-color: #ccc;
+  }
+
+  .layout-container-sider {
+    grid-area: layout-container-sider;
+    transition: width 0.3s ease;
+
+    aside {
+      height: 100vh !important;
+      transition: width 0.3s ease;
+      .ant-layout-sider-children {
+        border-right: 1px solid rgb(219, 225, 232) !important;
+        height: 100% !important;
+      }
+
+      .menu-bar-sidebar {
+        background: transparent !important;
+      }
+    }
+  }
+
+  .layout-sidebar-remove {
+    grid-area: layout-container-sider;
+  }
+
+  .layout-container-body {
+    grid-area: layout-container-body;
+    width: 100% !important;
+    transition: margin-left 0.3s ease;
+    overflow: hidden !important;
+    section {
+      height: 100% !important;
+      main {
+        height: 100% !important;
+      }
+    }
+  }
+
+  .layout-footer {
+    grid-area: layout-footer;
+    height: 36px;
+  }
+}
+
+.uplist-header {
+  &.mobile-menu-open {
+    display: none !important;
+  }
+}

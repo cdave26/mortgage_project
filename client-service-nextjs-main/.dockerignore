@@ -1,0 +1,19 @@
+Dockerfile
+.dockerignore
+
+# Ignore general files and directories
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+
+# Ignore Next.js specific files
+.next
+out
+
+# Ignore user-specific files
+.DS_Store
+Thumbs.db

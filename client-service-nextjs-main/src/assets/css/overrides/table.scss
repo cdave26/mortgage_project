@@ -1,0 +1,26 @@
+.ant-table-wrapper {
+  .ant-table {
+    .ant-table-column-sorters {
+      justify-content: start;
+      .ant-table-column-title {
+        flex: unset;
+      }
+      .ant-table-column-sorter {
+        color: #4b5a6a;
+      }
+    }
+  }
+}
+
+.ant-pagination {
+  align-items: center;
+
+  .ant-pagination-item {
+    font-family: "sharp-sans-medium" !important;
+    color: #00162e !important;
+    a {
+      font-family: "sharp-sans-medium" !important;
+      color: #00162e !important;
+    }
+  }
+}

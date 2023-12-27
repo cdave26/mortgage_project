@@ -1,0 +1,227 @@
+.user-list {
+  background-color: transparent;
+  .search {
+    // width: 294px;
+    // max-width: 294px;
+    // flex: 1;
+    border: 1px solid #dbe1e8;
+    border-radius: 4px;
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      font-family: "sharp-sans" !important;
+      font-size: 14px !important;
+      color: #4b5a6a;
+      &::placeholder {
+        color: #94a3b3;
+      }
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        display: none;
+      }
+    }
+  }
+  .company {
+    // width: 164px;
+    // max-width: 165px;
+    // flex: 1;
+  }
+  .price-engine {
+    // width: 180px;
+    // max-width: 180px;
+    // flex: 1;
+  }
+
+  .user-type {
+    // width: 180px;
+    // max-width: 180px;
+    // flex: 1;
+  }
+  .export-csv {
+    // flex: 1;
+    width: 147px;
+    height: 40px;
+    div {
+      font-family: "sharp-sans-bold" !important;
+      font-size: 14px !important;
+      font-weight: "bold" !important;
+      cursor: pointer;
+      border: 1px solid #dbe1e8;
+      border-radius: 4px;
+      height: 100%;
+      width: 100%;
+      color: #00162e;
+    }
+  }
+
+  .link {
+    flex: 1;
+    width: 147px;
+    height: 40px;
+    div {
+      border-radius: 8px;
+      background: #ffc160;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        font-family: "sharp-sans-medium";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+        color: #00162e;
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
+
+        span {
+          font-size: 16px;
+          color: #00162e;
+          font-family: "sharp-sans-medium";
+        }
+      }
+    }
+  }
+}
+
+.ant-table {
+  border: 1px solid #dbe1e8;
+}
+
+.ant-table-thead {
+  .ant-table-cell {
+    background-color: #f8fafb !important;
+    color: #00162e;
+    font-size: 14px;
+    font-family: "sharp-sans-bold" !important;
+    font-weight: 600;
+    line-height: 18px;
+  }
+}
+
+.ant-table-tbody {
+  .ant-table-cell {
+    font-family: "sharp-sans" !important;
+    font-size: 14px;
+    line-height: 21px;
+    color: #4b5a6a;
+
+    .ant-table-expanded-row-fixed {
+      width: 100% !important;
+    }
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.user-details-header {
+  color: #7e8c9c;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.user-details-value {
+  color: #00162e;
+  font-size: 14px;
+  font-family: "sharp-sans-medium" !important;
+  font-weight: 500;
+}
+
+.onloading {
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-add-user {
+  span {
+    width: 100%;
+  }
+}
+
+.-user-profile-image- {
+  position: relative;
+  width: 198px;
+  height: 198px;
+  max-width: 198px;
+  max-height: 198px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid #dbe1e8;
+  &.drop-over {
+    border: 1px dashed #4b5a6a;
+  }
+  .over-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    border-radius: 12px;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+
+    &.image-process {
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      z-index: 5;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .over-layer-text {
+      width: 100%;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+#_user-list-table_ {
+  background: transparent !important;
+  .ant-table-tbody {
+    background: transparent !important;
+    .ant-table-row {
+      background: transparent !important;
+      .ant-table-cell:last-child {
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
+
+        .ant-dropdown-trigger {
+          width: auto !important;
+          height: 54px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          background: transparent !important;
+        }
+      }
+    }
+  }
+}

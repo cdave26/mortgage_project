@@ -1,0 +1,67 @@
+.ant-card-head {
+  border: 0px !important;
+  min-height: 0px !important;
+
+  .ant-card-head-title {
+    font-weight: 700 !important;
+    color: #4b5a6a !important;
+    font-weight: 700 !important;
+  }
+}
+
+ul.ant-list-items {
+  list-style: none;
+}
+
+.ant-card-body {
+  padding: 0px !important;
+  margin-top: 42px !important;
+}
+
+.container-pricing-cards {
+  max-width: 1360px;
+  width: 100%;
+}
+
+.pricing-card:hover,
+.pricing-card.featured {
+  background-color: #0662c7;
+  color: #f9f9fb !important;
+
+  .ant-card-head-title,
+  .ant-card-head-title,
+  .card-price,
+  .card-month {
+    color: #f9f9fb !important;
+  }
+}
+
+// for disabled card
+.pricing-card.disabled {
+  .select-plan-btn {
+    opacity: 0.4 !important;
+  }
+  &:hover {
+    background-color: #fff;
+    color: #9daab8 !important;
+
+    .ant-card-head-title,
+    .ant-card-head-title,
+    .card-price {
+      color: #9daab8 !important;
+    }
+
+    .card-month {
+      color: #7e8c9c !important;
+    }
+  }
+  .ant-card-head {
+    .ant-card-head-title {
+      color: #9daab8 !important;
+    }
+  }
+}
+
+.select-plan-btn {
+  width: 212px;
+}

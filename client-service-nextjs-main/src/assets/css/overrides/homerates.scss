@@ -1,0 +1,20 @@
+.homerates-collapse-panel {
+  .ant-collapse-header {
+    padding: 1rem 2rem !important;
+    background-color: #eeeeee;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  .ant-collapse-content {
+    background-color: #fafafa;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ant-collapse-header {
+      padding: 1rem 0.5rem !important;
+    }
+  }
+}
